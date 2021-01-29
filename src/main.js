@@ -13,5 +13,14 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  created () {
+    this.init()
+  },
+  methods: {
+    init () {
+      store.dispatch('oauth/getToken', null, { root: true })
+    }
+  },
+
   render: h => h(App)
 }).$mount('#app')
